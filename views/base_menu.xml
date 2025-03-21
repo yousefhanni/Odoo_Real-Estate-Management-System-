@@ -1,0 +1,41 @@
+<odoo>
+    <data>
+        <!-- Root Menu -->
+        <menuitem id="real_estate_root" 
+                  name="Real Estate"  
+                  web_icon="app_one,static/description/icon.png"/>
+
+        <!-- Properties Menu (Main) -->
+        <menuitem id="properties_menu" 
+                  name="Properties" 
+                  parent="real_estate_root" 
+                  action="properties_action"/>
+
+        <!-- Submenu for "All Properties" -->
+        <menuitem id="all_properties_menu"
+                  name="All Properties"
+                  parent="properties_menu"
+                  action="properties_action"/>
+        
+        <!-- Configuration Menu -->
+        <menuitem id="configuration_menu" 
+                  name="Configuration" 
+                  parent="real_estate_root"
+                  groups="app_one.property_manager_group"
+                  />
+    </data>
+</odoo>
+
+
+<!-- 
+How to add icon in odoo?
+1-active debug mode
+2-settings=> Technical=> menu items
+3-search for Real Estate
+ -->
+ <!-- 
+How to Edit on tree and form views in odoo?
+1-active debug mode
+2-
+3-search for Real Estate
+ -->

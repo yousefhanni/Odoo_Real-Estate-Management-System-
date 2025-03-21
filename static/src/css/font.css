@@ -1,0 +1,11 @@
+@font-face {
+    font-family: "BigShouldersStencil", sans-serif;
+    src: url(/app_one/static/src/fonts/BigShouldersStencil-VariableFont_opsz,wght.ttf);
+}
+
+@font-face {
+    font-family: "Workbench";
+    src: url("../fonts/Workbench-Regular-VariableFont_BLED,SCAN.ttf");
+    font-family: "Workbench", sans-serif;
+    /* Add fallback */
+}

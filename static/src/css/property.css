@@ -1,0 +1,25 @@
+
+/* 
+why use !important?
+Odoo has strong default CSS rules,either due to higher specificity (stronger selectors) or because its styles load after yours,
+overriding your rules. When you add !important,you force the browser to apply your styles even if Odoo's default styles are more specific or inline styles are present.
+*/
+
+/* .header_custom table thead > tr > th {
+    background-color:#7BD3EA !important;
+    color:white !important ;
+} */
+
+/* 
+How to Fix Without !important?
+o_list_view: CSS class that Odoo automatically applies to list views (tree views) in the backend.
+Odoo applies its own default styles to .o_list_view,so you may need stronger selectors or !important to override them.
+*/
+.o_list_view.header_custom table thead>tr>th {
+    background-color: #7BD3EA;
+    color: blue;
+}
+
+/* .header_custom table thead>tr>th:nth-of-type(1) {
+    width: 100px !important;
+} */
