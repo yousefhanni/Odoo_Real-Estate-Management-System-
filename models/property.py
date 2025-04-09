@@ -1,6 +1,7 @@
 from odoo import models,fields,api
 from odoo.exceptions import ValidationError
 from datetime import timedelta 
+import requests  
 
 class Property(models.Model):
     _name = 'property'    
@@ -10,7 +11,7 @@ class Property(models.Model):
     ref=fields.Char(readonly=True,default='New')
     name=fields.Char(required=True,default='New',translate=True)
     description =fields.Text(tracking=True)
-    postcode =fields.Char()
+    postcode =fields.Char(required=True)
     date_availability =fields.Date(tracking=True)
     expected_selling_date=fields.Date(tracking=True)
     is_late=fields.Boolean()
@@ -236,7 +237,17 @@ class Property(models.Model):
         return action
         
          
+    #the get_properties method will send a request to the Controller at the /v1/properties endpoint using requests.get,
+    #and it will receive the response in the response variable.
+    #Then it prints the response content with print(response.content).     
     
+    # WORK as a Client  
+    def get_properies(self):
+        #i want to call endpoint that get properies 
+        payload=dict() #make this to in case needed to add body with method 
+        response = requests.get('http://localhost:8069/v1/properties',data=payload) #not need to payload(body of get)
+        print(response.content)
+
 # adding Lines         
 class PropertyLine(models.Model):
     _name = "property.line"
@@ -246,6 +257,9 @@ class PropertyLine(models.Model):
     description = fields.Text(string="Description")
     property_id = fields.Many2one("property", string="Property")
 
+    
+    
+    
     
     
     # there are two types of files must add to folder of translation
